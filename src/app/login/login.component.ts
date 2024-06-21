@@ -3,13 +3,13 @@ import Swal from 'sweetalert2';
 import { ServiceService } from '../service/service.service';
 import { FormGroup, FormsModule, ReactiveFormsModule, FormBuilder, Validators, EmailValidator } from '@angular/forms';
 import { NgIf } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule, FormsModule, NgIf],
+  imports: [ReactiveFormsModule, FormsModule, NgIf, RouterLink],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })

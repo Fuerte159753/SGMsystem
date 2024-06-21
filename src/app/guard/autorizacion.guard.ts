@@ -8,4 +8,5 @@ export const verifitecni: CanActivateFn = (route, state) => {
 
 export const verifiadmin: CanActivateFn = (route, state) =>{
   return true;
+  
 };

@@ -7,7 +7,7 @@ header("Content-Type: application/json; charset=UTF-8");
 include 'conexion.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    $sql = "SELECT COUNT(*) AS total_registros FROM usuarios";
+    $sql = "SELECT COUNT(*) AS total_registros FROM equipos";
     $result = $conn->query($sql);
 
     if ($result) {

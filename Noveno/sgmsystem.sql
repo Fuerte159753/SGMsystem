@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-06-2024 a las 06:39:55
+-- Tiempo de generación: 21-06-2024 a las 12:16:43
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -48,6 +48,31 @@ INSERT INTO `administrador` (`id`, `nombre`, `apellidos`, `telefono`, `domicilio
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `equipos`
+--
+
+CREATE TABLE `equipos` (
+  `id` char(6) NOT NULL,
+  `marca` varchar(50) NOT NULL,
+  `modelo` varchar(50) NOT NULL,
+  `tipo_mantenimiento` int(1) NOT NULL,
+  `ram` varchar(7) NOT NULL,
+  `foto` varchar(50) NOT NULL,
+  `procesador` varchar(100) NOT NULL,
+  `almacenamiento` varchar(7) NOT NULL,
+  `tipo` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `equipos`
+--
+
+INSERT INTO `equipos` (`id`, `marca`, `modelo`, `tipo_mantenimiento`, `ram`, `foto`, `procesador`, `almacenamiento`, `tipo`) VALUES
+('ER0001', 'Dell', 'Optiplex 9080 sff', 1, '16gb', '', 'intel core i5 6400', '1 tb', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `usuarios`
 --
 
@@ -77,6 +102,12 @@ INSERT INTO `usuarios` (`id`, `nombre`, `apellido`, `telefono`, `domicilio`, `co
 -- Indices de la tabla `administrador`
 --
 ALTER TABLE `administrador`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `equipos`
+--
+ALTER TABLE `equipos`
   ADD PRIMARY KEY (`id`);
 
 --

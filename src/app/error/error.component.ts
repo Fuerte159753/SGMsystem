@@ -1,18 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-error',
   standalone: true,
-  imports: [RouterLink],
+  imports: [],
   templateUrl: './error.component.html',
   styleUrl: './error.component.css'
 })
-export class ErrorComponent implements OnInit {
+export class ErrorComponent {
 
-  constructor(){}
-
-  ngOnInit(): void {
-
-  }
 }

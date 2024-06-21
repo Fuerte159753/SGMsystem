@@ -21,10 +21,8 @@ export class InicioComponent {
     let hours = this.currentDate.getHours();
     const minutes = this.currentDate.getMinutes();
     const ampm = hours >= 12 ? 'PM' : 'AM';
-
-    // Convertir la hora al formato de 12 horas
     hours = hours % 12;
-    hours = hours ? hours : 12; // La hora '0' debería mostrar '12'
+    hours = hours ? hours : 12;
 
     const formattedTime = `${hours}:${minutes < 10 ? '0' + minutes : minutes} ${ampm}`;
 

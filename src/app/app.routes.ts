@@ -9,6 +9,9 @@ import { InicioComponent } from './administrador/inicio/inicio.component';
 import { RegistroEquiposComponent } from './administrador/registro-equipos/registro-equipos.component';
 import { TecnicoslistComponent } from './administrador/tecnicoslist/tecnicoslist.component';
 import { EquiposlistComponent } from './administrador/equiposlist/equiposlist.component';
+import { ErroradminComponent } from './administrador/erroradmin/erroradmin.component';
+import { IniciousuarioComponent } from './tecnico/iniciousuario/iniciousuario.component';
+import { RecoverpasswordComponent } from './recoverpassword/recoverpassword.component';
 
 export const routes: Routes = [
     { path: 'Login', component: LoginComponent },
@@ -16,7 +19,8 @@ export const routes: Routes = [
 
     ///rutas tecnico \\\ 
     { path: 'WelcomeTec', component: TecnicoComponent, canActivate: [verifitecni], children:[
-
+        { path: 'inicio', component: IniciousuarioComponent },
+        { path: '', redirectTo: 'inicio', pathMatch: 'full' },
     ],},
 
     ///rutas admin\\\
@@ -27,8 +31,8 @@ export const routes: Routes = [
         { path: 'registroEquipos', component: RegistroEquiposComponent },
         { path: 'listaTecnicos', component: TecnicoslistComponent },
         { path: 'listaEquipos', component: EquiposlistComponent},
+        { path: '**', component: ErroradminComponent}
     ],},
-
- 
+    { path: 'Recoverpass', component:RecoverpasswordComponent},
     { path: '**', component: ErrorComponent },
 ];

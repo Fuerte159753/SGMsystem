@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
 import { ServiceService } from '../../service/service.service';
-import { FormGroup, FormsModule, ReactiveFormsModule, FormBuilder, Validators, EmailValidator } from '@angular/forms';
+import { FormGroup, FormsModule, ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { NgIf } from '@angular/common';
 import { Router } from '@angular/router';
 
@@ -29,6 +29,7 @@ export class RegistroTecComponent implements OnInit {
   }
   ngOnInit(): void { 
     this.Regtec.reset();
+    this.Regtec.get('numempleado')?.disable();
     this.obid();
   }
   obid() {
@@ -36,15 +37,14 @@ export class RegistroTecComponent implements OnInit {
       response => {
         const formattedId = this.formatEmployeeId(response.next_id);
         this.Regtec.get('numempleado')?.setValue(formattedId);
-        this.Regtec.get('numempleado')?.disable();
       },
       error => {
         Swal.fire('Error', 'No se pudo obtener el número de empleado. Inténtalo más tarde.', 'error');
+        this.rote.navigate(['/WelcomeAdmin/inicio']);
       }
     );
   }
   formatEmployeeId(id: number): string {
-    // Convertir el número a cadena y añadir ceros a la izquierda hasta alcanzar 4 dígitos
     return 'RT' + id.toString().padStart(4, '0');
   }  
   checkPasswords(group: FormGroup) {
@@ -83,7 +83,8 @@ export class RegistroTecComponent implements OnInit {
         }
       );
     } else {
-      Swal.fire('Error', 'Por favor completa el formulario correctamente.', 'error');
+      this.Regtec.markAllAsTouched();
+      Swal.fire('Error', 'Por favor completa el formulario.', 'error');
     }
   }
 }
